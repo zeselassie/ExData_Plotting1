@@ -21,8 +21,6 @@
 ##   subset data from the dates 2007-02-01 and 2007-02-02
 ##   and construct the plot and save it to a PNG file, "plot1.png",
 ##   with a width of 480 pixels and a height of 480 pixels.
-##   the file will be saves in "figures" directory found at
-##   the current working directory. It will be created if it doesn't exist
 
 ## Load "data.table" package
 library(data.table)
@@ -45,13 +43,8 @@ dated_power_consumption <- household_power_consumption[Date %between% period]
 ## convert column "Global_active_power" to numeric
 dated_power_consumption[,Global_active_power:=as.numeric(Global_active_power)]
 
-## create "figure" directory if it doesn't exist
-if(!file.exists("figure")){
-    dir.create("figure")
-}
-
 ## open a png file with a size of 480 x 480 pixels
-png(filename="figure/plot1.png", width = 480, height = 480, units = "px")
+png(filename="plot1.png", width = 480, height = 480, units = "px")
 
 ## drow a histogram with 
 ##   a title of: "Global Active Power"
